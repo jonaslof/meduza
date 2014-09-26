@@ -1,0 +1,37 @@
+
+	RECOMMENDED PLUGINS
+	===================
+
+	Advanced Custom Fields
+	http://wordpress.org/extend/plugins/advanced-custom-fields/
+	
+	Contact Form 7
+	http://wordpress.org/extend/plugins/contact-form-7/
+	
+	User Role Editor
+	http://wordpress.org/extend/plugins/user-role-editor/
+	
+	Google Analytics Dashboard
+	http://wordpress.org/extend/plugins/google-analytics-dashboard/	
+	
+	Google XML Sitemaps
+	http://wordpress.org/extend/plugins/google-sitemap-generator/
+	
+	Google Analytics for WordPress
+	http://wordpress.org/extend/plugins/google-analytics-for-wordpress/
+	
+	
+	OPTIONAL PLUGINS
+	================
+	
+	WP-PageNavi
+	http://wordpress.org/extend/plugins/wp-pagenavi/
+	
+	WP Super Cache
+	http://wordpress.org/extend/plugins/wp-super-cache/
+	
+	BuddyPress
+	http://wordpress.org/extend/plugins/buddypress/
+	
+	bbPress
+	http://wordpress.org/extend/plugins/bbpress/
