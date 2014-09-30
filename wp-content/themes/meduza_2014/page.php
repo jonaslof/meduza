@@ -1,15 +1,20 @@
 <?php get_header(); ?>
 
-		<div id="content" class="row-fluid">
-		
-			<div class="span12">
-			<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-				<?php echo the_content(); ?>
-			<?php endwhile; else: ?>
-				Nothing here to see.
+		<section class="section page-section">
+
+			<?php if (get_field('page_columns') === 'two-col') : ?>
+				<div class="container">
+					<div class="page-title"><h1><?php the_title(); ?></h1></div>
+					<div class="section-text-content section-text-content-half section-text-content-left col-1-2"><?php echo get_field('left_col_content'); ?></div>
+					<div class="section-text-content section-text-content-half section-text-content-right col-1-2"><?php echo $post->post_content; ?></div>
+				</div>
+			<?php else : ?>
+				<div class="container-narrow">
+					<div class="page-title"><h1><?php the_title(); ?></h1></div>
+					<div class="section-text-content section-text-content-full"><?php echo $post->post_content; ?></div>
+				</div>
 			<?php endif; ?>
-			</div><!-- .span-12 -->
-			
-		</div><!-- .row -->
+		</div>
+	</section>
 		
 <?php get_footer(); ?>

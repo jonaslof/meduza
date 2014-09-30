@@ -11,30 +11,38 @@
 	$args = array(
 		'post_type' => 'instagram-image',
 		'post_status' => 'publish',
-		'posts_per_page' => 13
+		'posts_per_page' => 19
 	);
 
-	if ($usernames && !empty($usernames)) {
-		$args['meta_query'] = array(
-			array(
-				'key'     => 'instagram_user',
-				'value'   => $usernames,
-				'compare' => 'IN',
-			),
-		);
-	}
+	// if ($usernames && !empty($usernames)) {
+	// 	$args['meta_query'] = array(
+	// 		array(
+	// 			'key'     => 'instagram_user',
+	// 			'value'   => $usernames,
+	// 			'compare' => 'IN',
+	// 		),
+	// 	);
+	// }
 
 
 	$images = new WP_Query($args);
 ?>
 
-<?php if ($images->have_posts()) : ?>
-	<?php while ($images->have_posts()) : $images->the_post(); ?>
-		<?php the_post_thumbnail('thumbnail'); ?>
-	<?php endwhile; ?>
-<?php endif; ?>
-<?php wp_reset_query(); ?>
+<section class="homepage-section homepage-section-instagram">
+	
+	<div class="section-instagram-images">
+		<?php if ($images->have_posts()) : ?>
+			<?php while ($images->have_posts()) : $images->the_post(); ?>
+				<?php the_post_thumbnail('thumbnail'); ?>
+			<?php endwhile; ?>
+		<?php endif; ?>
+		<?php wp_reset_query(); ?>
+	</div>
 
-<?php if ($section['section_instagramtext']) : ?>
-	<h2 class="instagram-text"><?php echo $section['section_instagramtext']; ?></h2>
-<?php endif; ?>
+	<div class="section-instagram-text">
+		<?php if ($section['section_instagramtext']) : ?>
+			<h2 class="instagram-title"><?php echo $section['section_instagramtext']; ?></h2>
+		<?php endif; ?>
+	</div>
+
+</section>

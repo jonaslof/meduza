@@ -56,13 +56,6 @@ register_field_group(array (
 				'order_no' => 1,
 				'group_no' => 0,
 			),
-			array (
-				'param' => 'page_template',
-				'operator' => '!=',
-				'value' => 'page-tpl-prices.php',
-				'order_no' => 1,
-				'group_no' => 0,
-			),
 		),
 	),
 	'options' => array (

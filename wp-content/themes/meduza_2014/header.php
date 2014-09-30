@@ -17,29 +17,32 @@
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 	
 	<!--[if IE]>
-		<script src="<?php bloginfo('template_directory'); ?>/js/modernizr.custom.86772.js"></script>
+		<link rel="stylesheet" href="<?php bloginfo('template_directory')?>/public/assets/css/custom.ie.css" />
+	  	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 		
 	<?php wp_head(); ?>
 	
 </head>
 <body <?php body_class(); ?>>
-
-<div class="container-fluid">
-
-	<div class="row-fluid">
 	
-		<header id="site-header" class="span12" role="banner">
-			<hgroup class="page-header">
-				<?php if (get_option('options_logo_png')): ?>
-					<?php echo wp_get_attachment_image(get_option('options_logo_png'), 'thumbnail'); ?>
+	<header id="header" role="banner">
 
-				<?php else: ?>
+			<?php if (get_option('options_logo_png')): ?>
+				<div class="container">
+					<div class="header-logo"><?php echo wp_get_attachment_image(get_option('options_logo_png'), 'thumbnail'); ?></div>
+				</div>
+			<?php else: ?>
+				<div class="container">
 					<h1><a href="<?php bloginfo('url'); ?>" title="<?php bloginfo('name'); ?>"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php endif; ?>
-			</hgroup>
+				</div>
+			<?php endif; ?>
 
-			<?php wp_nav_menu('header-menu'); ?>
-		</header>
-	
-	</div>
+			<?php 
+				$menu_args = array(
+					'theme_location' => 'header-menu',
+					'menu_class' => 'header-menu'
+				);
+				wp_nav_menu($menu_args); 
+			?>
+	</header>
