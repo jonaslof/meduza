@@ -28,6 +28,8 @@
 	
 	<header id="header" role="banner">
 
+			<div id="header-menu-button" class="visible-in-mobile-landscape btn btn-menu">Meny</div>
+
 			<?php if (get_option('options_logo_png')): ?>
 				<div class="container">
 					<div class="header-logo"><?php echo wp_get_attachment_image(get_option('options_logo_png'), 'thumbnail'); ?></div>

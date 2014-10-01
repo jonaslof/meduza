@@ -25,6 +25,24 @@ register_field_group(array (
 			'preview_size' => 'thumbnail',
 			'library' => 'all',
 		),
+		array (
+			'key' => 'field_542182bef88b8',
+			'label' => 'Logotyp mobil SVG',
+			'name' => 'logo_mobile_svg',
+			'type' => 'image',
+			'save_format' => 'object',
+			'preview_size' => 'thumbnail',
+			'library' => 'all',
+		),
+		array (
+			'key' => 'field_542182bef88b9',
+			'label' => 'Logotyp mobil PNG',
+			'name' => 'logo_mobile_png',
+			'type' => 'image',
+			'save_format' => 'object',
+			'preview_size' => 'thumbnail',
+			'library' => 'all',
+		),
 	),
 	'location' => array (
 		array (

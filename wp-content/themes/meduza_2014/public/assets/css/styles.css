@@ -549,6 +549,7 @@ a img {
  * Header
  */
 #header {
+  position: relative;
   background-color: #FFFFFF;
 }
 #header:after {
@@ -576,6 +577,10 @@ a img {
   .header-logo {
     padding-right: 15px;
   }
+}
+.header-logo img {
+  max-width: 100%;
+  height: auto;
 }
 .header-menu {
   list-style: none;
@@ -620,6 +625,32 @@ a img {
 }
 .current-menu-item a {
   color: #00b5cc;
+}
+.btn {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  margin-top: -10px;
+  height: 20px;
+  font-family: 'Oswald', 'Open Sans', Helvetica, sans-serif;
+}
+@media only screen and (max-width : 767px) {
+  .header-logo {
+    width: 100px;
+    float: none;
+    padding: 0px;
+    margin: 0px auto;
+  }
+  .header-menu {
+    height: 1px;
+    overflow: hidden;
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+  .header-menu a {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
 }
 /**
  * Homepage
@@ -1235,10 +1266,24 @@ h1.single-coworker-name {
 .footer-contact a:hover {
   color: #cccccc;
 }
+.visible-in-mobile-landscape {
+  display: none;
+}
 .visible-in-ie {
   display: none;
 }
 .is-sticky {
   position: fixed;
   z-index: 1000;
+}
+@media only screen and (max-width : 767px) {
+  .visible-in-mobile-landscape {
+    display: block;
+  }
+  .invisible-in-mobile-landscape {
+    display: none;
+  }
+  .is-sticky {
+    position: inherit;
+  }
 }

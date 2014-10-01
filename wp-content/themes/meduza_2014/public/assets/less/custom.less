@@ -141,12 +141,20 @@ a img 															{border: none;}
 /**
  * Header
  */
-#header 														{background-color: #FFFFFF; .clearfix();}
+#header 														{position: relative; background-color: #FFFFFF; .clearfix();}
 .header-logo 													{.col(); padding-top: 10px; text-align: center;}
+.header-logo img 												{max-width: 100%; height: auto;}
 .header-menu 													{.inlineList(); .col(); padding-top: 5px; padding-bottom: 5px; background-color: #FFFFFF; border-bottom: 4px double @borderColor; text-align: center; font-family: @headingsFontFamily; text-transform: uppercase; font-size: 14px; font-weight: 400;}
 .header-menu a 													{color: @colorGreyMiddle; padding: 5px 20px;}
 .header-menu a:hover 											{color: @primaryColor;}
 .current-menu-item a 											{color: @primaryColor;}
+.btn 															{position: absolute; left: @gutterMobile; top: 50%; margin-top: -10px; height: 20px; font-family: @headingsFontFamily;}
+
+@media @mobile-landscape {
+	.header-logo 												{width: 100px; float: none; padding: 0px; margin: 0px auto;}
+	.header-menu 												{height: 1px; overflow: hidden; padding-top: 0px; padding-bottom: 0px;}
+	.header-menu a 												{padding-top: 0px; padding-bottom: 0px;}
+}
 
 /**
  * Homepage
@@ -240,5 +248,12 @@ h1.single-coworker-name 										{margin-top: 0px; text-transform: uppercase; l
  .footer-contact a												{color: #FFFFFF;}
  .footer-contact a:hover										{color: @borderColor;}
 
+.visible-in-mobile-landscape 									{display: none;}
 .visible-in-ie 													{display: none;}
 .is-sticky 														{position: fixed; z-index: 1000;}
+
+@media @mobile-landscape {
+	.visible-in-mobile-landscape 								{display: block;}
+	.invisible-in-mobile-landscape 								{display: none;}
+	.is-sticky 													{position: inherit;}
+}
