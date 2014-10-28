@@ -103,7 +103,7 @@ class Meduza_Core_Plugin
 			'show_ui'            	=> true,
 			'show_in_menu'       	=> true,
 			'query_var' 			=> true,
-			'rewrite' 				=> array( 'slug' => 'medarbetare'),
+			'rewrite' 				=> array( 'slug' => 'frisorer'),
 			'has_archive' 			=> true, 
 			'hierarchical' 			=> false,
 			'menu_position' 		=> 21,

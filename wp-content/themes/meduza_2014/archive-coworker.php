@@ -2,7 +2,7 @@
 	
 	<section class="section section-coworkers">
 		<div class="container-wide">
-			<div class="page-title"><h1>Medarbetare</h1></div>
+			<div class="page-title"><h1>Frisök</h1></div>
 			<?php if ( have_posts() ) : ?>
 				<div class="coworkers">
 					<?php while ( have_posts() ) : the_post(); ?>		

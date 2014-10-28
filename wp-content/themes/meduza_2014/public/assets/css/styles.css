@@ -26,7 +26,7 @@ body {
   font-size: 16px;
   line-height: 24px;
   font-family: 'Open Sans', Helvetica, sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   color: #4a4a4a;
 }
 h1,
@@ -624,6 +624,7 @@ a img {
   width: 100%;
   padding-top: 5px;
   padding-bottom: 5px;
+  padding-left: 60px;
   background-color: #FFFFFF;
   border-bottom: 4px double #cccccc;
   text-align: center;
@@ -711,6 +712,11 @@ a img {
   -webkit-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
 }
+@media only screen and (max-width : 1024px) {
+  .header-menu {
+    padding-left: 30px;
+  }
+}
 @media only screen and (max-width : 767px) {
   .header-logo {
     width: 100px;
@@ -723,6 +729,7 @@ a img {
     overflow: hidden;
     padding-top: 0px;
     padding-bottom: 0px;
+    padding-left: 15px;
   }
   .header-menu a {
     padding-top: 0px;
@@ -1283,6 +1290,7 @@ h1.single-coworker-name {
   font-family: 'Oswald', 'Open Sans', Helvetica, sans-serif;
   font-size: 1.125em;
   line-height: 1.125em;
+  font-weight: 300;
 }
 .pricelist-item {
   position: relative;
