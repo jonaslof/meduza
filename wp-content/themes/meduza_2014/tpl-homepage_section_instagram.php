@@ -14,15 +14,15 @@
 		'posts_per_page' => 19
 	);
 
-	// if ($usernames && !empty($usernames)) {
-	// 	$args['meta_query'] = array(
-	// 		array(
-	// 			'key'     => 'instagram_user',
-	// 			'value'   => $usernames,
-	// 			'compare' => 'IN',
-	// 		),
-	// 	);
-	// }
+	if ($usernames && !empty($usernames)) {
+		$args['meta_query'] = array(
+			array(
+				'key'     => 'instagram_user',
+				'value'   => $usernames,
+				'compare' => 'IN',
+			),
+		);
+	}
 
 
 	$images = new WP_Query($args);
@@ -33,7 +33,7 @@
 	<div class="section-instagram-images">
 		<?php if ($images->have_posts()) : ?>
 			<?php while ($images->have_posts()) : $images->the_post(); ?>
-				<?php the_post_thumbnail('thumbnail'); ?>
+				<div class="instagram-image"><?php the_post_thumbnail('thumbnail'); ?></div>
 			<?php endwhile; ?>
 		<?php endif; ?>
 		<?php wp_reset_query(); ?>

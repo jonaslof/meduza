@@ -93,6 +93,12 @@
 	-o-background-size: cover;
 	background-size: cover;
 }
+
+.rotationOrigin(@x: 50%, @y: 50%) {
+	-ms-transform-origin: @x @y;
+	-webkit-transform-origin: @x @y;
+	transform-origin: @x @y;
+}
 					
 html, body 														{height: 100%;}					
 body 															{background-color: #FFFFFF; margin: 0px;}
@@ -107,6 +113,12 @@ label 															{display: block;}
 input.checkbox 													{width: 15px; height: 15px; margin-right: 2px; background-color: #FFFFFF; border: 1px solid @borderColor;}
 label.checkbox-label 											{display: inline-block;}
 a img 															{border: none;}
+
+@media @mobile-landscape {
+	h1 															{font-size: 1.75em;}
+	h2 															{font-size: 1.5em;}
+	p 															{font-size: 12px; line-height: 1.5em; font-weight: 400;}
+}
 
 .aligncenter 													{display: block; margin: 0px auto;}
 .alignleft 														{float: left;}
@@ -126,6 +138,13 @@ a img 															{border: none;}
 .section-title h2:after 										{margin-left: -40px; width: 80px;}
 .section-title h3:after 										{margin-left: -30px; width: 60px;}
 
+@media @mobile-landscape {
+	.page-title h1:after,
+	.section-instagram-page-title h1:after,
+	.section-title h2:after 										{margin-left: -25px; width: 50px;}
+	.section-title h3:after 										{margin-left: -30px; width: 60px;}
+}
+
 @-moz-document url-prefix() {
 	.select 													{-moz-box-sizing: border-box; height: 33px; padding-top: 4px;}
 	.select-large 												{-moz-box-sizing: border-box; height: 42px; padding-top: 9px;}
@@ -141,19 +160,26 @@ a img 															{border: none;}
 /**
  * Header
  */
-#header 														{position: relative; background-color: #FFFFFF; .clearfix();}
+#header 														{position: relative; background-color: #FFFFFF; .clearfix(); .transition();}
 .header-logo 													{.col(); padding-top: 10px; text-align: center;}
 .header-logo img 												{max-width: 100%; height: auto;}
 .header-menu 													{.inlineList(); .col(); padding-top: 5px; padding-bottom: 5px; background-color: #FFFFFF; border-bottom: 4px double @borderColor; text-align: center; font-family: @headingsFontFamily; text-transform: uppercase; font-size: 14px; font-weight: 400;}
 .header-menu a 													{color: @colorGreyMiddle; padding: 5px 20px;}
 .header-menu a:hover 											{color: @primaryColor;}
 .current-menu-item a 											{color: @primaryColor;}
-.btn 															{position: absolute; left: @gutterMobile; top: 50%; margin-top: -10px; height: 20px; font-family: @headingsFontFamily;}
+.btn 															{font-family: @headingsFontFamily; cursor: pointer;}
+.btn-menu 														{position: absolute; z-index: 10; left: @gutterMobile; top: 26px; height: 20px; padding-left: 20px;}
+.btn-menu:before 												{position: absolute; left: 0px; top: 7px; display: block; content: ''; height: 2px; width: 16px; border-bottom: 1px solid @borderColor; border-top: 1px solid @borderColor;}
+.btn-menu:after 												{position: absolute; left: 0px; top: 13px; display: block; content: ''; height: 2px; width: 16px; border-bottom: 1px solid @borderColor; border-top: 1px solid @borderColor;}
+.btn-menu.active:before 										{top: 10px; .rotation(-45deg); .rotationOrigin();}
+.btn-menu.active:after 											{top: 10px; .rotation(45deg); .rotationOrigin();}
+
 
 @media @mobile-landscape {
 	.header-logo 												{width: 100px; float: none; padding: 0px; margin: 0px auto;}
 	.header-menu 												{height: 1px; overflow: hidden; padding-top: 0px; padding-bottom: 0px;}
 	.header-menu a 												{padding-top: 0px; padding-bottom: 0px;}
+	.header-menu li 											{display: block; width: 100%; padding: 5px;}
 }
 
 /**
@@ -170,6 +196,11 @@ a img 															{border: none;}
 .homepage-section .section-title h2 							{text-transform: uppercase; text-align: center; font-size: 2.5em; line-height: 1.5em; .marginBottom();}
 .homepage-section .section-title h2:after 						{display: block; content: ''; position: relative; left: 50%; margin-left: -40px; width: 80px; height: 2px; border-top: 1px solid @borderColor; border-bottom: 1px solid @borderColor;}
 
+@media @mobile-landscape {
+	.homepage-section 											{.paddingTop(); .paddingBottom();}
+	.homepage-section .section-title h2 						{font-size: 2em;}
+}
+
 /**
  * Page
  */
@@ -178,12 +209,19 @@ a img 															{border: none;}
 .container-wide .page-title 									{padding-right: 10px;}
 .page-title h1 													{line-height: 1.5em;}
 .page-content 													{.col(50.00%);}
+.section-text-content h2 										{line-height: 1.4em;}
+.section-text-content img 										{max-width: 100%; height: auto;}
+
+@media @mobile-landscape {
+	.col-1-2 													{width: 100%;}
+}
 
 /**
  * Coworkers
  */
 .coworkers 														{text-align: center; .paddingBottom(2);}
 .coworker 														{display: inline-block; line-height: 0px; position: relative; margin-right: 6px; margin-bottom: 10px; vertical-align: top;}
+.coworker img 													{max-width: 100%; height: auto;}
 .coworker-header 												{position: absolute; top: 0px; width: 100%;}
 .coworker-header h2 											{.marginTop(0.75); text-transform: uppercase; font-size: 1.5em; line-height: 1em;}
 .coworker-footer 												{.borderBox(); position: absolute; bottom: 0px; width: 100%; .paddingBox(0.75); padding-right: 0px; background: url(../img/bg_white_transparent70.png); font-family: @headingsFontFamily; text-align: left; font-size: 1.2em; line-height: 1.5em; font-weight: 400; color: #000000;}
@@ -203,6 +241,19 @@ h1.single-coworker-name 										{margin-top: 0px; text-transform: uppercase; l
 .section-other-coworkers .section-title h2						{text-transform: uppercase; .marginBottom(); color: @colorGrey; font-size: 1.5em;}
 .section-other-coworkers .coworker-footer 						{font-size: 14px; line-height: 1em;}
 
+@media @mobile-landscape {
+	.coworker 													{max-width: 45%;}
+	.coworker-header h2 										{font-size: 1em; .marginTop(0.25);}
+	.coworker-footer 											{.paddingBox(0.25); font-size: 0.9em;}
+	.coworker-footer p 											{width: 100%;}
+	.coworker-phone 											{text-align: left;}
+	.single-coworker-photo 										{width: 100%; .marginBottom(0.5);}
+	.single-coworker-info 										{width: 100%;}
+	.single-coworker-phone 										{.marginBottom(0.75);}
+	.single-coworker-content 									{font-size: 12px; line-height: 1.5em; font-weight: 400;}
+}
+
+
 /**
  * Section instagram
  */
@@ -211,14 +262,25 @@ h1.single-coworker-name 										{margin-top: 0px; text-transform: uppercase; l
 .section-instagram-page 										{position: relative; padding-top: 0px; padding-bottom: 0px; overflow: hidden;}
 .section-instagram-images 										{position: relative; width: 2400px; left: 50%; margin-left: -1200px; text-align: center; }
 .section-instagram-page .section-instagram-images 				{width: 3200px; margin-left: -1600px;}
-.homepage-section-instagram img,
+.instagram-image,
 .section-instagram img,
 .section-instagram-page img 									{display: inline-block; margin-left: -4px; line-height: 0; vertical-align:top;}
+.instagram-image img											{max-width: 100%; height: auto;}
 .section-instagram-text 										{position: absolute; top: 50%; width: 100%; margin-top: -25px;}
 .instagram-title 												{margin-top: 0px; font-size: 3.5em; line-height: 50px; text-transform: uppercase; text-align: center; color: #FFFFFF; text-shadow: 0px 2px 8px rgba(0,0,0,0.3);}
 .section-instagram-page-title									{margin-top: -50px;}
 .section-instagram-page-title h1 								{line-height: 1.5em;}
 .section-instagram-page-title h1:after 							{border-color: #FFFFFF;}
+
+@media @mobile-landscape {
+	.section-instagram-images 									{width: 1200px; margin-left: -600px;}
+	.section-instagram-page .section-instagram-images 			{width: 1600px; margin-left: -800px;}
+	.instagram-image 											{width: 120px;}
+	.instagram-title 											{font-size: 2em;}
+	.section-instagram-page img  								{width: 160px; height: auto;}
+	.section-instagram-page-title 								{margin-top: -30px;}
+}
+
 
 /**
  * Prices
@@ -234,6 +296,15 @@ h1.single-coworker-name 										{margin-top: 0px; text-transform: uppercase; l
 .pricelist-item-service 										{.col(66.00%); padding-right: 10px;}
 .pricelist-item-price 											{.col(33.00%); padding-right: 0px; text-align: right;}
 
+@media @mobile-landscape {
+	.pricelist 													{width: 100%; .marginBottom(0.5); }
+	.pricelist-inner 											{.paddingBox(0.5);}
+	.pricelist-items 											{font-size: 1em;}
+	.pricelist-item 											{padding-right: 0px;}
+	.pricelist-item-price 										{padding-right: 0px;}
+}
+
+
 /**
  * Footer
  */
@@ -241,6 +312,11 @@ h1.single-coworker-name 										{margin-top: 0px; text-transform: uppercase; l
 .section-products .section-title h3 							{text-transform: uppercase; color: @colorGreyMiddle; font-size: 1.5em; line-height: 1.6em; text-align: center;}
 .section-products .section-title h3:after 						{border-color: @colorGreyMiddle;}
 .section-products img 											{vertical-align: middle; margin: 25px 50px;}
+
+@media @mobile-landscape {
+	.section-products img 										{width: 100px; height: auto; margin: 10px 20px;}
+}
+
 
  #footer 														{.paddingTop(); .paddingBottom();}
  .footer-logo 													{.col(); text-align: center; .marginBottom();}

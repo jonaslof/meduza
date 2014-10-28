@@ -18,9 +18,9 @@
 						<div class="single-coworker-phone"><?php echo get_field('coworker_phone'); ?></div>
 					<?php endif; ?>
 
-					<div class="single-coworker-content">
+					<p class="single-coworker-content">
 						<?php echo $post->post_content; ?>
-					</div>
+					</p>
 				</div>
 			</div>
 

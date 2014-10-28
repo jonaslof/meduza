@@ -8,24 +8,23 @@
 	 *	Load scripts													*
 	\*------------------------------------------------------------------*/
 	
-	if( !is_admin() )
-	{
-		wp_deregister_script('jquery');
-		wp_register_script('jquery', ("http://code.jquery.com/jquery-latest.min.js"), false);
-		wp_enqueue_script('jquery');
+    function register_scripts_and_styles() {
+        wp_deregister_script('jquery');
+        wp_register_script('jquery', ("http://code.jquery.com/jquery-latest.min.js"), false);
+        wp_enqueue_script('jquery');
 
-		wp_deregister_script('scripts');
+        wp_deregister_script('scripts');
         wp_register_script('scripts', (get_bloginfo('url') . "/wp-content/themes/meduza_2014/public/scripts.min.js"), array('jquery'), false, false);
         wp_enqueue_script('scripts');
 
-		wp_deregister_style('styles');
+        wp_deregister_style('styles');
         wp_register_style('styles', (get_bloginfo('url') . "/wp-content/themes/meduza_2014/public/assets/css/styles.css"), false);
         wp_enqueue_style('styles');
 
         wp_deregister_style('sprites');
         wp_register_style('sprites', (get_bloginfo('url') . "/wp-content/themes/meduza_2014/public/sprites.css"), false);
         wp_enqueue_style('sprites');
-	}
+    }
 
 	if( !is_admin() )
 	{

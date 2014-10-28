@@ -20,10 +20,15 @@ function debug($var, $die = false) {
 }
 
 define('WP_USE_THEMES', false);
-require('../../../../wp-blog-header.php');
+//require('../../../../wp-blog-header.php');
+
+//Use include path on live server
+set_include_path('/home/meduza/public_html/demo.salongmeduza.se');
+require('wp-blog-header.php');
 require_once(ABSPATH . 'wp-admin/includes/media.php');
 require_once(ABSPATH . 'wp-admin/includes/file.php');
 require_once(ABSPATH . 'wp-admin/includes/image.php');
+
 
 include_once('instagram.class.php');
 

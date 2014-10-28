@@ -100,6 +100,32 @@
 
 		}
 
+		$('#header-menu-button').on('click', function(){
+			var $menu = $('.header-menu'),
+				$button = $(this);
+
+			if(!$menu.hasClass('active')) {
+				var currentHeight = $menu.height(),
+					autoHeight = $menu.css('height', 'auto').height() + 10;
+
+				$button.toggleClass('active');
+
+				$menu.height(currentHeight).animate({
+					'height': autoHeight + 'px'
+				}, 200, function(){
+					$(this).toggleClass('active');
+				});
+			} else {
+				$button.toggleClass('active');
+				
+				$menu.animate({
+					'height': '1px'
+				}, 200, function(){
+					$(this).toggleClass('active');
+				});
+			}
+		});
+
 
     });
 

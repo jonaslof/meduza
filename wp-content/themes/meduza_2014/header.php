@@ -45,6 +45,8 @@
 					'theme_location' => 'header-menu',
 					'menu_class' => 'header-menu'
 				);
-				wp_nav_menu($menu_args); 
+				wp_nav_menu($menu_args);
+
+				wp_reset_query();
 			?>
 	</header>

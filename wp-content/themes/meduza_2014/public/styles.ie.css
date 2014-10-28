@@ -718,6 +718,10 @@ a img {
 #header {
   position: relative;
   background-color: #FFF;
+  -webkit-transition: all .2s ease-out;
+  -moz-transition: all .2s ease-out;
+  -o-transition: all .2s ease-out;
+  transition: all .2s ease-out;
 }
 
 #header:after {
@@ -788,12 +792,65 @@ a img {
 }
 
 .btn {
-  position: absolute;
-  left: 15px;
-  top: 50%;
-  margin-top: -10px;
-  height: 20px;
   font-family: Oswald,'Open Sans',Helvetica,sans-serif;
+  cursor: pointer;
+}
+
+.btn-menu {
+  position: absolute;
+  z-index: 10;
+  left: 15px;
+  top: 26px;
+  height: 20px;
+  padding-left: 20px;
+}
+
+.btn-menu:before {
+  position: absolute;
+  left: 0;
+  top: 7px;
+  display: block;
+  content: '';
+  height: 2px;
+  width: 16px;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+}
+
+.btn-menu:after {
+  position: absolute;
+  left: 0;
+  top: 13px;
+  display: block;
+  content: '';
+  height: 2px;
+  width: 16px;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+}
+
+.btn-menu.active:before {
+  top: 10px;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -ms-transform-origin: 50% 50%;
+  -webkit-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+}
+
+.btn-menu.active:after {
+  top: 10px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -ms-transform-origin: 50% 50%;
+  -webkit-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
 }
 
 .homepage-section {
@@ -926,6 +983,15 @@ a img {
   padding-right: 30px;
 }
 
+.section-text-content h2 {
+  line-height: 1.4em;
+}
+
+.section-text-content img {
+  max-width: 100%;
+  height: auto;
+}
+
 .coworkers {
   text-align: center;
   padding-bottom: 60px;
@@ -938,6 +1004,11 @@ a img {
   margin-right: 6px;
   margin-bottom: 10px;
   vertical-align: top;
+}
+
+.coworker img {
+  max-width: 100%;
+  height: auto;
 }
 
 .coworker-header {
@@ -1139,13 +1210,18 @@ h1.single-coworker-name {
   margin-left: -1600px;
 }
 
-.homepage-section-instagram img,
+.instagram-image,
 .section-instagram img,
 .section-instagram-page img {
   display: inline-block;
   margin-left: -4px;
   line-height: 0;
   vertical-align: top;
+}
+
+.instagram-image img {
+  max-width: 100%;
+  height: auto;
 }
 
 .section-instagram-text {

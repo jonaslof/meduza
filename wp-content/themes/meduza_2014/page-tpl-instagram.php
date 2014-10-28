@@ -31,7 +31,7 @@
 			$images = new WP_Query($args);
 		?>
 		
-		<?php if ($images->have_posts()): ?>
+		<?php if ($images->have_posts() && !empty($usernames)): ?>
 			<section class="section section-instagram-page">
 				<div class="section-instagram-images">
 					<?php foreach ($images->posts as $image): ?>
@@ -45,25 +45,29 @@
 		<?php endif; ?>
 
 	<?php endif; ?>
+	<?php wp_reset_query(); ?>
 
 	<section class="section page-section">
 			<?php if (get_field('page_columns') === 'two-col') : ?>
-				
 				<div class="container">
-					<?php if (!get_field('page_instagram_users')): ?>
-						<h1 class="page-title"><?php the_title(); ?></h1>
+					<?php if (!get_field('page_instagram_users') || !$images->have_posts() || empty($usernames)): ?>
+						<div class="page-title">
+							<h1><?php the_title(); ?></h1>
+						</div>
 					<?php endif; ?>
 					<div class="section-text-content section-text-content-half section-text-content-left col-1-2"><?php echo get_field('left_col_content'); ?></div>
-					<div class="section-text-content section-text-content-half section-text-content-right col-1-2"><?php echo $post->post_content; ?></div>
+					<div class="section-text-content section-text-content-half section-text-content-right col-1-2"><?php the_content(); ?></div>
 				</div>
 
 			<?php else : ?>
 
 				<div class="container-narrow">
-					<?php if (!get_field('page_instagram_users')): ?>
-						<h1 class="page-title"><?php the_title(); ?></h1>
+					<?php if (!get_field('page_instagram_users')  || !$images->have_posts() || empty($usernames)): ?>
+						<div class="page-title">
+							<h1><?php the_title(); ?></h1>
+						</div>
 					<?php endif; ?>
-					<div class="section-text-content section-text-content-full"><?php echo $post->post_content; ?></div>
+					<div class="section-text-content section-text-content-full"><?php the_content(); ?></div>
 				</div>
 
 			<?php endif; ?>
