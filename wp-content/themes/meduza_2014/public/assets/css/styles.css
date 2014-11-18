@@ -1075,6 +1075,7 @@ h1.single-coworker-name {
 .single-coworker-content {
   font-size: 1.25em;
   line-height: 1.5em;
+  font-weight: 300;
 }
 .section-other-coworkers {
   padding-top: 30px;

@@ -23,7 +23,7 @@ define('WP_USE_THEMES', false);
 //require('../../../../wp-blog-header.php');
 
 //Use include path on live server
-set_include_path('/home/meduza/public_html/demo.salongmeduza.se');
+set_include_path('/home/meduza/public_html');
 require('wp-blog-header.php');
 require_once(ABSPATH . 'wp-admin/includes/media.php');
 require_once(ABSPATH . 'wp-admin/includes/file.php');
